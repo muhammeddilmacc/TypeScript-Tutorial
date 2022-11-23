@@ -1,7 +1,7 @@
 class Department {
   private readonly id: String; // readonly is a keyword that makes the property immutable
   private name: String; // private is a keyword that makes the property not accessible from outside the class
-  private employees: String[] = [];
+  protected employees: String[] = []; // protected is a keyword that makes the property accessible from extended classes but not from outside the class
 
   constructor(id: String, n: String) {
     this.id = id;
@@ -47,6 +47,9 @@ class ITDepartment extends Department {
 }
 
 const it = new ITDepartment("D2", ["Bekir", "Ali"]);
+console.log(it);
 it.describe();
 it.getAdmins();
-it.printEmployeeInformation(); 
+it.printEmployeeInformation();
+it.addEmployee("Bekir");
+it.printEmployeeInformation();
